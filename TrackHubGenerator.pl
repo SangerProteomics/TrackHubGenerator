@@ -80,6 +80,9 @@ if(-d $hubpath) {
 	$toolfiles = join("",$dir,"/",$base,"/");
 	if(-d $toolfiles) {
 		my $fetchchromsizes = join("",$toolfiles,"fetchChromSizes.sh");
+		if(! -f $fetchchromsizes) {
+			$fetchChromSizes = join("",$toolfiles,"fetchChromSizes");
+		}
 		my $chromsizes = join("",$toolfiles,$genome,".chrom.sizes");
 		if(!-f $chromsizes) {
 			if(-f $fetchchromsizes) {
